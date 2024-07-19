@@ -1,10 +1,7 @@
-// İhtiyacınız olan SDK'ları içe aktarın
 import { initializeApp } from "firebase/app";
 import { getAnalytics, isSupported as isAnalyticsSupported } from "firebase/analytics";
 import { getReactNativePersistence, initializeAuth } from 'firebase/auth';
 import AsyncStorage from "@react-native-async-storage/async-storage";
-// Kullanmak istediğiniz Firebase ürünleri için SDK'ları ekleyin
-// https://firebase.google.com/docs/web/setup#available-libraries 
 import { getFirestore, collection } from 'firebase/firestore';
 
 // Firebase yapılandırmanız

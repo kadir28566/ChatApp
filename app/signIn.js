@@ -30,7 +30,7 @@ export default function SignIn() {
     if(!response.success){
       Alert.alert('Oturum Aç', response.msg);
     }
-    //login process
+    
   }
 
   return (

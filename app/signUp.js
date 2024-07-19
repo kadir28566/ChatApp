@@ -32,7 +32,7 @@ export default function signUp() {
     if(!response.success){
       Alert.alert('Sign Up', response.msg);
     }
-    //register process
+    
   }
 
   return (
