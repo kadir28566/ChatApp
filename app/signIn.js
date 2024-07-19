@@ -5,6 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Octicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import Loading from '../components/Loading';
+import { useAuth } from '../context/authContext';
 
 
 
@@ -12,6 +13,7 @@ import Loading from '../components/Loading';
 export default function SignIn() {
   const router=useRouter();
   const [loading,setLoading]=useState(false);
+  const {login} = useAuth();
 
   const emailRef=useRef("");
   const passwordRef=useRef("")
@@ -20,6 +22,13 @@ export default function SignIn() {
     if(!emailRef.current || !passwordRef.current){
       Alert.alert('Oturum açma', 'Lütfen bütün alanları doldurunuz');
       return;
+    }
+    setLoading(true);
+    const response = await login(emailRef.current, passwordRef.current);
+    setLoading(false);
+    console.log('sign in response:', response);
+    if(!response.success){
+      Alert.alert('Oturum Aç', response.msg);
     }
     //login process
   }
